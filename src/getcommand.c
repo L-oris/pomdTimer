@@ -1,5 +1,6 @@
-#include "readln.h"
+#include "./getcommand.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 int readln(char str[]) {
@@ -17,4 +18,10 @@ int readln(char str[]) {
     }
     str[i] = '\0';
     return i;
+}
+
+char* getcommand() {
+    char* command = malloc(MAX_STRING_LEN * sizeof(char));
+    readln(command);
+    return command;
 }

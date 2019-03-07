@@ -1,17 +1,10 @@
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "readln.h"
+#include "./getcommand.h"
 
 #define TIMER_COUNTDOWN 5
-
-char* getcommand() {
-    char* command = malloc(MAX_STRING_LEN * sizeof(char));
-    readln(command);
-    return command;
-}
 
 void help() {
     printf("\nCommands:\n");
@@ -36,7 +29,7 @@ int start() {
 
         if (updated_time_gap != time_gap) {
             time_gap = updated_time_gap;
-            printf("\r🕐  %d..", time_gap);
+            printf("\r🕐  - %d..", time_gap);
             fflush(stdout);
         }
     }
