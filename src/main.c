@@ -23,10 +23,27 @@ void help() {
 
 int start() {
     time_t initial_time = time(NULL);
+    time_t final_time = initial_time + TIMER_COUNTDOWN;
+    int time_gap = TIMER_COUNTDOWN;
+
+    printf("\n");
     while (1) {
-        if (time(NULL) - initial_time > TIMER_COUNTDOWN) {
+        int updated_time_gap = final_time - time(NULL);
+
+        if (updated_time_gap <= 0) {
+            //remove line
+            fputs("\033[A\033[2K", stdout);
+            rewind(stdout);
             printf("🕐  - Session ended\n");
             return 0;
+        }
+
+        if (updated_time_gap != time_gap) {
+            time_gap = updated_time_gap;
+            //remove line
+            fputs("\033[A\033[2K", stdout);
+            rewind(stdout);
+            printf("🕐  %d..\n", time_gap);
         }
     }
 }
