@@ -1,5 +1,3 @@
-#define TIMER_COUNTDOWN 5
-
-int start();
+int start(int count_in_seconds);
 
 void help();

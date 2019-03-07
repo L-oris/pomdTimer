@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
 
         char* command = getcommand();
         if (strcmp(command, "start") == 0) {
-            start();
+            start(11);
             continue;
         }
 
