@@ -1,17 +1,16 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "readln.h"
 
 #define TIMER_COUNTDOWN 5
 
-char getcommand() {
-    char command[MAX_STRING_LEN];
-    int commandlen = readln(command);
-    if (commandlen != 1) {
-        return 'x';
-    }
-    return command[0];
+char* getcommand() {
+    char* command = malloc(MAX_STRING_LEN * sizeof(char));
+    readln(command);
+    return command;
 }
 
 void help() {
@@ -47,20 +46,25 @@ int main(int argc, char** argv) {
     int keepgoing = 1;
     while (keepgoing) {
         printf("\n🍅  ");
-        switch (getcommand()) {
-            case 'h':
-                help();
-                break;
-            case 's':
-                start();
-                break;
-            case 'q':
-                printf("Ending...\n");
-                keepgoing = 0;
-                break;
-            default:
-                printf("Invalid command\n");
-                break;
+
+        char* command = getcommand();
+        if (strcmp(command, "start") == 0) {
+            start();
+            continue;
         }
+
+        if (strcmp(command, "help") == 0) {
+            help();
+            continue;
+        }
+
+        if (strcmp(command, "quit") == 0) {
+            printf("Ending...\n");
+            keepgoing = 0;
+            break;
+        }
+
+        printf("Invalid command\n");
+        free(command);
     }
 }
