@@ -21,7 +21,7 @@ int readln(char str[]) {
 }
 
 char* getcommand() {
-    char* command = malloc(MAX_STRING_LEN * sizeof(char));
+    char* command = (char*)malloc(MAX_STRING_LEN * sizeof(char));
     readln(command);
     return command;
 }
