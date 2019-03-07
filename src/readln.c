@@ -2,20 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-char getcommand() {
-    char command[MAXSTRLEN];
-    int commandlen;
-    char c;
-
-    commandlen = readln(command);
-    if (commandlen != 1) {
-        c = 'x';
-    } else {
-        c = command[0];
-    }
-    return c;
-}
-
 int readln(char s[]) {
     char ch;
     int i;

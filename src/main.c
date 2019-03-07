@@ -5,6 +5,20 @@
 
 #define TIMER_COUNTDOWN 5
 
+char getcommand() {
+    char command[MAXSTRLEN];
+    int commandlen;
+    char c;
+
+    commandlen = readln(command);
+    if (commandlen != 1) {
+        c = 'x';
+    } else {
+        c = command[0];
+    }
+    return c;
+}
+
 int main(int argc, char** argv) {
     int keepgoing = 1;
     while (keepgoing) {

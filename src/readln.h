@@ -1,3 +1,3 @@
 #define MAXSTRLEN 200
 
-char getcommand();
+int readln(char s[]);
