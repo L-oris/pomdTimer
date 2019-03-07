@@ -26,8 +26,8 @@ int start() {
 }
 
 void help() {
-    printf("\nCommands:\n");
-    printf("* h: provides help\n");
-    printf("* s: starts the timer\n");
-    printf("* q: exits the program\n");
+    printf("\n Commands:\n\n");
+    printf("	help			Provides help\n");
+    printf("	start [options]		Starts the timer\n");
+    printf("	quit			Quits the program\n");
 }
