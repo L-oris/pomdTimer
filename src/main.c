@@ -16,9 +16,19 @@ char getcommand() {
 
 void help() {
     printf("\nCommands:\n");
-    printf("h: provides help\n");
-    printf("s: starts the timer\n");
-    printf("q: exits the program\n");
+    printf("* h: provides help\n");
+    printf("* s: starts the timer\n");
+    printf("* q: exits the program\n");
+}
+
+int start() {
+    time_t initial_time = time(NULL);
+    while (1) {
+        if (time(NULL) - initial_time > TIMER_COUNTDOWN) {
+            printf("🕐  - Session ended\n");
+            return 0;
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -29,6 +39,9 @@ int main(int argc, char** argv) {
             case 'h':
                 help();
                 break;
+            case 's':
+                start();
+                break;
             case 'q':
                 printf("Ending...\n");
                 keepgoing = 0;
@@ -38,12 +51,4 @@ int main(int argc, char** argv) {
                 break;
         }
     }
-
-    // time_t initial_time = time(NULL);
-    // while (1) {
-    //     if (time(NULL) - initial_time > TIMER_COUNTDOWN) {
-    //         printf("done\n");
-    //         return 0;
-    //     }
-    // }
 }
