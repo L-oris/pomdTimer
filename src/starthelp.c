@@ -3,10 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-int start(int count_in_seconds) {
+int start(int time_gap) {
     time_t initial_time = time(NULL);
-    time_t final_time = initial_time + count_in_seconds;
-    int time_gap = count_in_seconds;
+    time_t final_time = initial_time + time_gap;
 
     while (1) {
         int updated_time_gap = final_time - time(NULL);
