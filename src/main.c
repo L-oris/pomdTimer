@@ -10,8 +10,9 @@ int main(int argc, char** argv) {
         printf("\n🍅  ");
 
         char* command = getcommand();
-        if (strcmp(command, "start") == 0) {
-            start(11);
+        if (strncmp(command, "start", 5) == 0) {
+            int time_gap = atoi(command + 6);
+            start(time_gap);
             continue;
         }
 
