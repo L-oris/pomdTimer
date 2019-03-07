@@ -1,3 +1,3 @@
-#define MAXSTRLEN 200
+#define MAX_STRING_LEN 200
 
 int readln(char s[]);

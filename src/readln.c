@@ -2,21 +2,19 @@
 #include <stdio.h>
 #include <string.h>
 
-int readln(char s[]) {
-    char ch;
-    int i;
-    int chars_remain;
-    i = 0;
-    chars_remain = 1;
-    while (chars_remain) {
-        ch = getchar();
-        if ((ch == '\n') || (ch == EOF)) {
-            chars_remain = 0;
-        } else if (i < MAXSTRLEN - 1) {
-            s[i] = ch;
+int readln(char str[]) {
+    int i = 0;
+    char current_char;
+    while (1) {
+        current_char = getchar();
+        if ((current_char == '\n') || (current_char == EOF)) {
+            break;
+        }
+        if (i < MAX_STRING_LEN - 1) {
+            str[i] = current_char;
             i++;
         }
     }
-    s[i] = '\0';
+    str[i] = '\0';
     return i;
 }

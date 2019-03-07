@@ -6,7 +6,7 @@
 #define TIMER_COUNTDOWN 5
 
 char getcommand() {
-    char command[MAXSTRLEN];
+    char command[MAX_STRING_LEN];
     int commandlen = readln(command);
     if (commandlen != 1) {
         return 'x';
